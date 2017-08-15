@@ -20,6 +20,7 @@ import org.jctools.channels.proxy.ProxyChannelFactory;
 import org.openjdk.jmh.annotations.AuxCounters;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.CompilerControl;
 import org.openjdk.jmh.annotations.Group;
 import org.openjdk.jmh.annotations.GroupThreads;
 import org.openjdk.jmh.annotations.Level;
@@ -44,7 +45,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
 public class MpscProxyChannelBenchmark {
 
-    private static final int CAPACITY = 10000;
+    private static final int CAPACITY = 128000;
     private static final int PRODUCER_THREADS = 10;
     private static final int CONSUMER_THREADS = 1;
 
@@ -126,31 +127,37 @@ public class MpscProxyChannelBenchmark {
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void noArgs() {
             Blackhole.consumeCPU(this.tokens);
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void onePrimitiveArg(final int x) {
             Blackhole.consumeCPU(this.tokens);
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void twoMixedLengthPrimitiveArgs(final int x, final long y) {
             Blackhole.consumeCPU(this.tokens);
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void oneObjectArg(final Object x) {
             Blackhole.consumeCPU(this.tokens);
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void oneReferenceArg(final CustomType x) {
             Blackhole.consumeCPU(this.tokens);
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void tenMixedArgs(final int i,
                 final Object o,
                 final long l,
@@ -165,6 +172,7 @@ public class MpscProxyChannelBenchmark {
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void unalignedPrimitiveArgs(
                 long l1,
                 double d1,
@@ -187,6 +195,7 @@ public class MpscProxyChannelBenchmark {
         }
 
         @Override
+        @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void alignedPrimitiveArgs(int i,
                 long l1,
                 double d1,
@@ -280,7 +289,7 @@ public class MpscProxyChannelBenchmark {
     private int limit;
 
     @Setup(Level.Iteration)
-    public void setupTrial() {
+    public void setupIteration() {
         this.waitStrategy = new MyWaitStrategy();
         this.mpscChannel = ProxyChannelFactory.createMpscProxy(CAPACITY, BenchIFace.class, this.waitStrategy);
         this.proxy = this.mpscChannel.proxy();

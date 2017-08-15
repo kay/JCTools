@@ -13,12 +13,25 @@
  */
 package org.jctools.channels.spsc;
 
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.jctools.channels.proxy.ProxyChannel;
 import org.jctools.channels.proxy.ProxyChannelFactory;
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.AuxCounters;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.CompilerControl;
+import org.openjdk.jmh.annotations.Group;
+import org.openjdk.jmh.annotations.GroupThreads;
+import org.openjdk.jmh.annotations.Level;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Param;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.infra.Control;
 import org.openjdk.jmh.runner.Runner;
@@ -276,7 +289,7 @@ public class SpscProxyChannelBenchmark {
     private int limit;
 
     @Setup(Level.Iteration)
-    public void setupTrial() {
+    public void setupIteration() {
         this.waitStrategy = new MyWaitStrategy();
         this.spscChannel = ProxyChannelFactory.createSpscProxy(CAPACITY, BenchIFace.class, this.waitStrategy);
         this.proxy = this.spscChannel.proxy();
