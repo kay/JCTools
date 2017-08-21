@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp"
+    packages="org.jctools.proxy.logger">
+    <Appenders>
+        <File name="File1" fileName="jctools.log">
+            <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
+        </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
+        </Console>
+        <JcToolsAsync name="Async">
+            <AppenderRef ref="File1" />
+        </JcToolsAsync>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Async" />
+        </Root>
+    </Loggers>
+</Configuration>
