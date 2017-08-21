@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jctools.channels;
+package org.jctools.proxy;
 
 import static org.jctools.util.PortableJvmInfo.CACHE_LINE_SIZE;
 import static org.jctools.util.UnsafeAccess.UNSAFE;
@@ -20,7 +20,7 @@ import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.channels.proxy.ProxyChannelRingBuffer;
+import org.jctools.proxy.proxy.ProxyChannelRingBuffer;
 import org.jctools.util.Pow2;
 import org.jctools.util.UnsafeDirectByteBuffer;
 import org.jctools.util.UnsafeRefArrayAccess;

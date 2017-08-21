@@ -23,8 +23,8 @@ import org.jctools.util.Template;
 
 import java.nio.ByteBuffer;
 
-import static org.jctools.channels.spsc.SpscOffHeapFixedSizeRingBuffer.getLookaheadStep;
-import static org.jctools.channels.spsc.SpscOffHeapFixedSizeRingBuffer.getRequiredBufferSize;
+import static org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer.getLookaheadStep;
+import static org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer.getRequiredBufferSize;
 
 public final class SpscChannel<E> implements Channel<E> {
 

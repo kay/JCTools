@@ -14,6 +14,7 @@
 package org.jctools.channels.spsc;
 
 import org.jctools.channels.ChannelProducer;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 
 import java.nio.ByteBuffer;
 

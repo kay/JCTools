@@ -1,12 +1,15 @@
-package org.jctools.channels.proxy;
+package org.jctools.proxy.proxy;
 
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
-import org.jctools.channels.WaitStrategy;
-import org.jctools.channels.mpsc.MpscOffHeapFixedSizeRingBuffer;
-import org.jctools.channels.proxy.DemoIFace.CustomType;
-import org.jctools.channels.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.WaitStrategy;
+import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.proxy.ProxyChannel;
+import org.jctools.proxy.proxy.ProxyChannelFactory;
+import org.jctools.proxy.proxy.ProxyChannelRingBuffer;
+import org.jctools.proxy.proxy.DemoIFace.CustomType;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;

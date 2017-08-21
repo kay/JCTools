@@ -3,7 +3,7 @@ package org.jctools.channels.baseline;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import org.jctools.channels.proxy.ProxyChannel;
+import org.jctools.proxy.proxy.ProxyChannel;
 import org.openjdk.jmh.annotations.AuxCounters;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -236,7 +236,7 @@ public class ExecutorChannelBenchmark {
     private static final StoppedException STOPPED = new StoppedException();
 
     private static final class MyWaitStrategy
-            implements org.jctools.channels.WaitStrategy {
+            implements org.jctools.proxy.WaitStrategy {
         public Control control;
         private int retries;
 

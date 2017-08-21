@@ -17,6 +17,7 @@ import java.nio.ByteBuffer;
 
 import org.jctools.channels.ChannelConsumer;
 import org.jctools.channels.ChannelReceiver;
+import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
 
 /**
  * Package Scoped: not part of public API.

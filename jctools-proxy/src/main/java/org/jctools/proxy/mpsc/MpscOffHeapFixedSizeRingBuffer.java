@@ -11,14 +11,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jctools.channels.mpsc;
+package org.jctools.proxy.mpsc;
 
 import static org.jctools.util.UnsafeAccess.UNSAFE;
 import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.channels.OffHeapFixedMessageSizeRingBuffer;
+import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
 import org.jctools.util.PortableJvmInfo;
 import org.jctools.util.Pow2;
 

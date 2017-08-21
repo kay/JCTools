@@ -11,9 +11,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jctools.channels.spsc;
+package org.jctools.proxy.spsc;
 
-import org.jctools.channels.AbstractOffHeapFixedSizeRingBufferTest;
+import org.jctools.proxy.AbstractOffHeapFixedSizeRingBufferTest;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 import org.junit.Test;
 
 public class SpscOffHeapFixedSizeRingBufferTest extends AbstractOffHeapFixedSizeRingBufferTest {

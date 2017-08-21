@@ -1,4 +1,4 @@
-package org.jctools.channels.proxy;
+package org.jctools.proxy.proxy;
 
 public interface DemoIFace {
     

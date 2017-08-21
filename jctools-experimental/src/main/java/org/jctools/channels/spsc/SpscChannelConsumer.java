@@ -15,6 +15,7 @@ package org.jctools.channels.spsc;
 
 import org.jctools.channels.ChannelConsumer;
 import org.jctools.channels.ChannelReceiver;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 
 import java.nio.ByteBuffer;
 

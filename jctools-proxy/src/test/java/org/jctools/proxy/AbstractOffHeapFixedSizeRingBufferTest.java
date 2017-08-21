@@ -11,14 +11,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jctools.channels;
+package org.jctools.proxy;
 
-import static org.jctools.channels.OffHeapFixedMessageSizeRingBuffer.EOF;
-import static org.jctools.channels.OffHeapFixedMessageSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
+import static org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer.EOF;
+import static org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
 import static org.jctools.util.UnsafeAccess.UNSAFE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+
+import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
 
 public class AbstractOffHeapFixedSizeRingBufferTest {
 

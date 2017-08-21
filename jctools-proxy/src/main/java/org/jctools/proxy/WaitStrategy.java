@@ -1,4 +1,4 @@
-package org.jctools.channels;
+package org.jctools.proxy;
 
 public interface WaitStrategy {
     /**

@@ -1,4 +1,4 @@
-package org.jctools.channels.proxy;
+package org.jctools.proxy.proxy;
 
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
@@ -6,9 +6,9 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jctools.channels.WaitStrategy;
-import org.jctools.channels.mpsc.MpscOffHeapFixedSizeRingBuffer;
-import org.jctools.channels.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.WaitStrategy;
+import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 import org.jctools.util.UnsafeAccess;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;

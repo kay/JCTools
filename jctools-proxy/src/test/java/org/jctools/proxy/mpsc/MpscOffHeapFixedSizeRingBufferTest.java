@@ -11,9 +11,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jctools.channels.mpsc;
+package org.jctools.proxy.mpsc;
 
-import org.jctools.channels.AbstractOffHeapFixedSizeRingBufferTest;
+import org.jctools.proxy.AbstractOffHeapFixedSizeRingBufferTest;
+import org.jctools.proxy.mpsc.MpscFFLamportOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
 import org.junit.Test;
 
 public class MpscOffHeapFixedSizeRingBufferTest extends AbstractOffHeapFixedSizeRingBufferTest {

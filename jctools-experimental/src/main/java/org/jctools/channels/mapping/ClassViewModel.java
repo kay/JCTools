@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jctools.channels.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 
 public class ClassViewModel {
 

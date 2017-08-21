@@ -13,7 +13,7 @@
  */
 package org.jctools.channels.mpsc;
 
-import static org.jctools.channels.OffHeapFixedMessageSizeRingBuffer.getRequiredBufferSize;
+import static org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer.getRequiredBufferSize;
 
 import java.nio.ByteBuffer;
 
