@@ -13,24 +13,24 @@
  */
 package org.jctools.proxy.mpsc;
 
-import org.jctools.proxy.AbstractOffHeapFixedSizeRingBufferTest;
-import org.jctools.proxy.mpsc.MpscFFLamportOffHeapFixedSizeRingBuffer;
-import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.AbstractFixedSizeRingBufferTest;
+import org.jctools.proxy.mpsc.MpscFFLamportFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscFixedSizeRingBuffer;
 import org.junit.Test;
 
-public class MpscOffHeapFixedSizeRingBufferTest extends AbstractOffHeapFixedSizeRingBufferTest {
+public class MpscFixedSizeRingBufferTest extends AbstractFixedSizeRingBufferTest {
 
     @Test
     public void test() {
         // TODO: Needs test for when referenceMessageSize > 0
-        MpscOffHeapFixedSizeRingBuffer rb = new MpscOffHeapFixedSizeRingBuffer(1024, 31, 0);
+        MpscFixedSizeRingBuffer rb = new MpscFixedSizeRingBuffer(1024, 31, 0);
         test(rb);
     }
 
     @Test
     public void testFFLamport() {
         // TODO: Needs test for when referenceMessageSize > 0
-        MpscFFLamportOffHeapFixedSizeRingBuffer rb = new MpscFFLamportOffHeapFixedSizeRingBuffer(1024, 31, 0);
+        MpscFFLamportFixedSizeRingBuffer rb = new MpscFFLamportFixedSizeRingBuffer(1024, 31, 0);
         test(rb);
     }
 

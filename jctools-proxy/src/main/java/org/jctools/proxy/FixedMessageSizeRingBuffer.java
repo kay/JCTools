@@ -30,7 +30,7 @@ import org.jctools.util.UnsafeRefArrayAccess;
  * - 'null' indicator in message preceding byte (potentially use same for type mapping in future)
  * - Use FF algorithm relying on indicator to support in place detection of next element existence
  */
-public abstract class OffHeapFixedMessageSizeRingBuffer extends ProxyChannelRingBuffer {
+public abstract class FixedMessageSizeRingBuffer extends ProxyChannelRingBuffer {
 
     public static final int READ_RELEASE_INDICATOR = 0;
     public static final int READ_ACQUIRE_INDICATOR = 1;
@@ -66,7 +66,7 @@ public abstract class OffHeapFixedMessageSizeRingBuffer extends ProxyChannelRing
         return Pow2.roundToPowerOfTwo(capacity) * primitiveMessageSize;
     }
 
-    public OffHeapFixedMessageSizeRingBuffer(final int capacity, final int primitiveMessageSize, int referenceMessageSize) {
+    public FixedMessageSizeRingBuffer(final int capacity, final int primitiveMessageSize, int referenceMessageSize) {
         this(allocateAlignedByteBuffer(getRequiredBufferSize(capacity, primitiveMessageSize), CACHE_LINE_SIZE), 
                 Pow2.roundToPowerOfTwo(capacity),
                 true,
@@ -84,7 +84,7 @@ public abstract class OffHeapFixedMessageSizeRingBuffer extends ProxyChannelRing
      * @param capacity in messages, actual capacity will be
      * @param primitiveMessageSize
      */
-    protected OffHeapFixedMessageSizeRingBuffer(final ByteBuffer buff,
+    protected FixedMessageSizeRingBuffer(final ByteBuffer buff,
             final int capacity,
             final boolean isProducer,
             final boolean isConsumer,

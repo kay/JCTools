@@ -15,14 +15,14 @@ package org.jctools.channels.spsc;
 
 import org.jctools.channels.ChannelConsumer;
 import org.jctools.channels.ChannelReceiver;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 
 import java.nio.ByteBuffer;
 
 /**
  * Package Scoped: not part of public API.
  */
-public abstract class SpscChannelConsumer<E> extends SpscOffHeapFixedSizeRingBuffer implements ChannelConsumer {
+public abstract class SpscChannelConsumer<E> extends SpscFixedSizeRingBuffer implements ChannelConsumer {
 
     protected final ChannelReceiver<E> receiver;
 

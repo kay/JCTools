@@ -6,8 +6,8 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 import org.jctools.util.UnsafeAccess;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -63,7 +63,7 @@ public class ProxyChannelFactory {
         return createProxy(capacity, 
                 iFace, 
                 waitStrategy, 
-                SpscOffHeapFixedSizeRingBuffer.class);
+                SpscFixedSizeRingBuffer.class);
     }
 
     /**
@@ -85,7 +85,7 @@ public class ProxyChannelFactory {
         return createProxy(capacity,
                 iFace,
                 waitStrategy,
-                MpscOffHeapFixedSizeRingBuffer.class);
+                MpscFixedSizeRingBuffer.class);
     }
     
     /**

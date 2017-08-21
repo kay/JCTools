@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 
 public class ClassViewModel {
 
@@ -62,7 +62,7 @@ public class ClassViewModel {
     }
 
     public List<Variable> fields() {
-        int fieldOffset = SpscOffHeapFixedSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
+        int fieldOffset = SpscFixedSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
         List<Variable> fields = new ArrayList<Variable>();
         for (Method method : inspector.getters) {
             Primitive type = Primitive.of(method.getReturnType());

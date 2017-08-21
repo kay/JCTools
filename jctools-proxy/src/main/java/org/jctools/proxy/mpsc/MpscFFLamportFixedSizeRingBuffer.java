@@ -15,7 +15,7 @@ package org.jctools.proxy.mpsc;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
+import org.jctools.proxy.FixedMessageSizeRingBuffer;
 import org.jctools.util.PortableJvmInfo;
 import org.jctools.util.Pow2;
 
@@ -31,9 +31,9 @@ import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
  * method for polling from the queue (with minor change to correctly publish the index) and an extension of
  * the Leslie Lamport concurrent queue algorithm (originated by Martin Thompson) on the producer side.<br>
  **/
-public final class MpscFFLamportOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingBuffer {
+public final class MpscFFLamportFixedSizeRingBuffer extends FixedMessageSizeRingBuffer {
 
-   public MpscFFLamportOffHeapFixedSizeRingBuffer(final int capacity, final int primitiveMessageSize, final int referenceMessageSize) {
+   public MpscFFLamportFixedSizeRingBuffer(final int capacity, final int primitiveMessageSize, final int referenceMessageSize) {
       this(allocateAlignedByteBuffer(getRequiredBufferSize(capacity, primitiveMessageSize), PortableJvmInfo.CACHE_LINE_SIZE), Pow2.roundToPowerOfTwo(capacity), true, true, true, primitiveMessageSize, createReferenceArray(capacity, referenceMessageSize), referenceMessageSize);
    }
 
@@ -45,7 +45,7 @@ public final class MpscFFLamportOffHeapFixedSizeRingBuffer extends OffHeapFixedM
     * @param buff
     * @param capacity
     */
-   protected MpscFFLamportOffHeapFixedSizeRingBuffer(final ByteBuffer buff,
+   protected MpscFFLamportFixedSizeRingBuffer(final ByteBuffer buff,
                                                      final int capacity,
                                                      final boolean isProducer,
                                                      final boolean isConsumer,

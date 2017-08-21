@@ -19,7 +19,7 @@ import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
+import org.jctools.proxy.FixedMessageSizeRingBuffer;
 import org.jctools.util.Pow2;
 import org.jctools.util.UnsafeRefArrayAccess;
 
@@ -29,7 +29,7 @@ import org.jctools.util.UnsafeRefArrayAccess;
  * - 'null' indicator in message preceding byte (potentially use same for type mapping in future)
  * - Use FF algorithm relying on indicator to support in place detection of next element existence
  */
-public class SpscOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingBuffer {
+public class SpscFixedSizeRingBuffer extends FixedMessageSizeRingBuffer {
 
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step",
             4096);
@@ -43,7 +43,7 @@ public class SpscOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingB
         return Math.min(capacity / 4, MAX_LOOK_AHEAD_STEP);
     }
 
-    public SpscOffHeapFixedSizeRingBuffer(final int capacity, final int messageSize, final int referenceMessageSize) {
+    public SpscFixedSizeRingBuffer(final int capacity, final int messageSize, final int referenceMessageSize) {
         this(allocateAlignedByteBuffer(getRequiredBufferSize(capacity, messageSize), CACHE_LINE_SIZE),
                 Pow2.roundToPowerOfTwo(capacity),
                 true,
@@ -61,7 +61,7 @@ public class SpscOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingB
      * @param capacity in messages, actual capacity will be
      * @param messageSize
      */
-    protected SpscOffHeapFixedSizeRingBuffer(final ByteBuffer buff,
+    protected SpscFixedSizeRingBuffer(final ByteBuffer buff,
             final int capacity,
             final boolean isProducer,
             final boolean isConsumer,

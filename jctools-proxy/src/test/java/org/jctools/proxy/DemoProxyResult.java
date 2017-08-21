@@ -3,7 +3,7 @@ package org.jctools.proxy;
 import org.jctools.proxy.ProxyChannel;
 import org.jctools.proxy.ProxyChannelFactory;
 import org.jctools.proxy.WaitStrategy;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 import org.jctools.util.UnsafeAccess;
 
 /**
@@ -11,7 +11,7 @@ import org.jctools.util.UnsafeAccess;
  *
  * @author yak
  */
-public class DemoProxyResult extends SpscOffHeapFixedSizeRingBuffer implements ProxyChannel<DemoIFace>, DemoIFace {
+public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyChannel<DemoIFace>, DemoIFace {
     private final WaitStrategy waitStrategy;
     
     public DemoProxyResult(int capacity, WaitStrategy waitStrategy) {

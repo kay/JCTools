@@ -13,16 +13,16 @@
  */
 package org.jctools.proxy.spsc;
 
-import org.jctools.proxy.AbstractOffHeapFixedSizeRingBufferTest;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.AbstractFixedSizeRingBufferTest;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 import org.junit.Test;
 
-public class SpscOffHeapFixedSizeRingBufferTest extends AbstractOffHeapFixedSizeRingBufferTest {
+public class SpscFixedSizeRingBufferTest extends AbstractFixedSizeRingBufferTest {
 
 	@Test
 	public void test() {
         // TODO: Needs test for when referenceMessageSize > 0
-		SpscOffHeapFixedSizeRingBuffer rb = new SpscOffHeapFixedSizeRingBuffer(1024, 31, 0);
+		SpscFixedSizeRingBuffer rb = new SpscFixedSizeRingBuffer(1024, 31, 0);
 		test(rb);
 	}
 

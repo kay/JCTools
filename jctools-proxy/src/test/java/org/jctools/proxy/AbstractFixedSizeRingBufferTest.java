@@ -13,19 +13,19 @@
  */
 package org.jctools.proxy;
 
-import static org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer.EOF;
-import static org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
+import static org.jctools.proxy.FixedMessageSizeRingBuffer.EOF;
+import static org.jctools.proxy.FixedMessageSizeRingBuffer.MESSAGE_INDICATOR_SIZE;
 import static org.jctools.util.UnsafeAccess.UNSAFE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
+import org.jctools.proxy.FixedMessageSizeRingBuffer;
 
-public class AbstractOffHeapFixedSizeRingBufferTest {
+public class AbstractFixedSizeRingBufferTest {
 
 
-	public static void test(OffHeapFixedMessageSizeRingBuffer rb) {
+	public static void test(FixedMessageSizeRingBuffer rb) {
         assertEquals(0, rb.size());
 		assertTrue(rb.isEmpty());
 		assertEquals(EOF, rb.readAcquire());

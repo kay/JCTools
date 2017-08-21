@@ -8,8 +8,8 @@ import org.jctools.proxy.ProxyChannelFactory;
 import org.jctools.proxy.ProxyChannelRingBuffer;
 import org.jctools.proxy.WaitStrategy;
 import org.jctools.proxy.DemoIFace.CustomType;
-import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -43,12 +43,12 @@ public class ProxyCreationTest {
 
     @Test
     public void givenGeneratedProxyUsingSpscReferenceChannel_whenCallMethods_expectAllCallsAreProxied() throws Exception {
-        util_givenGeneratedProxyUsingReferenceChannel_whenCallMethods_expectAllCallsAreProxied(SpscOffHeapFixedSizeRingBuffer.class);
+        util_givenGeneratedProxyUsingReferenceChannel_whenCallMethods_expectAllCallsAreProxied(SpscFixedSizeRingBuffer.class);
     }
 
     @Test
     public void givenGeneratedProxyUsingMpscReferenceChannel_whenCallMethods_expectAllCallsAreProxied() throws Exception {
-        util_givenGeneratedProxyUsingReferenceChannel_whenCallMethods_expectAllCallsAreProxied(MpscOffHeapFixedSizeRingBuffer.class);
+        util_givenGeneratedProxyUsingReferenceChannel_whenCallMethods_expectAllCallsAreProxied(MpscFixedSizeRingBuffer.class);
     }
 
     private static void util_givenGeneratedProxyUsingReferenceChannel_whenCallMethods_expectAllCallsAreProxied(

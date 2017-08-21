@@ -17,12 +17,12 @@ import java.nio.ByteBuffer;
 
 import org.jctools.channels.ChannelConsumer;
 import org.jctools.channels.ChannelReceiver;
-import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscFixedSizeRingBuffer;
 
 /**
  * Package Scoped: not part of public API.
  */
-public abstract class MpscChannelConsumer<E> extends MpscOffHeapFixedSizeRingBuffer implements ChannelConsumer {
+public abstract class MpscChannelConsumer<E> extends MpscFixedSizeRingBuffer implements ChannelConsumer {
 
     protected final ChannelReceiver<E> receiver;
 

@@ -18,7 +18,7 @@ import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.proxy.OffHeapFixedMessageSizeRingBuffer;
+import org.jctools.proxy.FixedMessageSizeRingBuffer;
 import org.jctools.util.PortableJvmInfo;
 import org.jctools.util.Pow2;
 
@@ -28,9 +28,9 @@ import org.jctools.util.Pow2;
  * - 'null' indicator in message preceding byte (potentially use same for type mapping in future)
  * - Use Vyukov MPMC like algorithm relying on indicator to support in place detection of next element existence
  */
-public class MpscOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingBuffer {
+public class MpscFixedSizeRingBuffer extends FixedMessageSizeRingBuffer {
 
-    public MpscOffHeapFixedSizeRingBuffer(final int capacity, final int messageSize, int referenceMessageSize) {
+    public MpscFixedSizeRingBuffer(final int capacity, final int messageSize, int referenceMessageSize) {
         this(allocateAlignedByteBuffer(getRequiredBufferSize(capacity, messageSize), PortableJvmInfo.CACHE_LINE_SIZE),
                 Pow2.roundToPowerOfTwo(capacity),
                 true,
@@ -47,7 +47,7 @@ public class MpscOffHeapFixedSizeRingBuffer extends OffHeapFixedMessageSizeRingB
      * @param buff
      * @param capacity
      */
-    protected MpscOffHeapFixedSizeRingBuffer(final ByteBuffer buff,
+    protected MpscFixedSizeRingBuffer(final ByteBuffer buff,
             final int capacity,
             final boolean isProducer,
             final boolean isConsumer,

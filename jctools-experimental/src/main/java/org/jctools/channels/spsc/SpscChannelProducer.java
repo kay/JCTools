@@ -14,7 +14,7 @@
 package org.jctools.channels.spsc;
 
 import org.jctools.channels.ChannelProducer;
-import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.spsc.SpscFixedSizeRingBuffer;
 
 import java.nio.ByteBuffer;
 
@@ -23,7 +23,7 @@ import java.nio.ByteBuffer;
  *
  * @param <E> element type.
  */
-public abstract class SpscChannelProducer<E> extends SpscOffHeapFixedSizeRingBuffer implements ChannelProducer<E> {
+public abstract class SpscChannelProducer<E> extends SpscFixedSizeRingBuffer implements ChannelProducer<E> {
 
     protected long pointer;
 

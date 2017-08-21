@@ -16,14 +16,14 @@ package org.jctools.channels.mpsc;
 import java.nio.ByteBuffer;
 
 import org.jctools.channels.ChannelProducer;
-import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
+import org.jctools.proxy.mpsc.MpscFixedSizeRingBuffer;
 
 /**
  * Package Scoped: not part of public API.
  *
  * @param <E> element type.
  */
-public abstract class MpscChannelProducer<E> extends MpscOffHeapFixedSizeRingBuffer implements ChannelProducer<E> {
+public abstract class MpscChannelProducer<E> extends MpscFixedSizeRingBuffer implements ChannelProducer<E> {
 
     protected long pointer;
 
