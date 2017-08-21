@@ -1,8 +1,8 @@
-package org.jctools.proxy.proxy;
+package org.jctools.proxy;
 
+import org.jctools.proxy.ProxyChannel;
+import org.jctools.proxy.ProxyChannelFactory;
 import org.jctools.proxy.WaitStrategy;
-import org.jctools.proxy.proxy.ProxyChannel;
-import org.jctools.proxy.proxy.ProxyChannelFactory;
 import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 import org.jctools.util.UnsafeAccess;
 

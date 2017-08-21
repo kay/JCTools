@@ -15,8 +15,8 @@ package org.jctools.channels.mpsc;
 
 import java.util.concurrent.TimeUnit;
 
-import org.jctools.proxy.proxy.ProxyChannel;
-import org.jctools.proxy.proxy.ProxyChannelFactory;
+import org.jctools.proxy.ProxyChannel;
+import org.jctools.proxy.ProxyChannelFactory;
 import org.openjdk.jmh.annotations.AuxCounters;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;

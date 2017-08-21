@@ -3,7 +3,7 @@ package org.jctools.channels.baseline;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import org.jctools.proxy.proxy.ProxyChannel;
+import org.jctools.proxy.ProxyChannel;
 import org.openjdk.jmh.annotations.AuxCounters;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;

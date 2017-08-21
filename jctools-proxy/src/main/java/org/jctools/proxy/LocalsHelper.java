@@ -1,4 +1,4 @@
-package org.jctools.proxy.proxy;
+package org.jctools.proxy;
 
 import static java.lang.System.out;
 

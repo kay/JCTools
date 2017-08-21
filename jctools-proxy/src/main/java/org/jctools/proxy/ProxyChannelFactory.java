@@ -1,4 +1,4 @@
-package org.jctools.proxy.proxy;
+package org.jctools.proxy;
 
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
@@ -6,7 +6,6 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jctools.proxy.WaitStrategy;
 import org.jctools.proxy.mpsc.MpscOffHeapFixedSizeRingBuffer;
 import org.jctools.proxy.spsc.SpscOffHeapFixedSizeRingBuffer;
 import org.jctools.util.UnsafeAccess;

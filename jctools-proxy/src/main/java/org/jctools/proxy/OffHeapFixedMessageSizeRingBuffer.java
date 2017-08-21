@@ -20,7 +20,6 @@ import static org.jctools.util.UnsafeDirectByteBuffer.allocateAlignedByteBuffer;
 
 import java.nio.ByteBuffer;
 
-import org.jctools.proxy.proxy.ProxyChannelRingBuffer;
 import org.jctools.util.Pow2;
 import org.jctools.util.UnsafeDirectByteBuffer;
 import org.jctools.util.UnsafeRefArrayAccess;

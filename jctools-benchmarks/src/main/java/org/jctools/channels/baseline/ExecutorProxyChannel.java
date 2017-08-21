@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 
 import org.jctools.channels.baseline.ExecutorChannelBenchmark.BenchIFace;
 import org.jctools.channels.baseline.ExecutorChannelBenchmark.CustomType;
-import org.jctools.proxy.proxy.ProxyChannel;
+import org.jctools.proxy.ProxyChannel;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
