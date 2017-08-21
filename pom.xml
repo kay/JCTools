@@ -62,6 +62,7 @@
         <module>jctools-benchmarks</module>
         <module>jctools-concurrency-test</module>
         <module>jctools-build</module>
+        <module>jctools-proxy</module>
     </modules>
 
     <build>
