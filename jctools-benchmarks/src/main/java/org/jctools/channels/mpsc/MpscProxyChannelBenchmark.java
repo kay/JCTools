@@ -148,12 +148,16 @@ public class MpscProxyChannelBenchmark {
         @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void oneObjectArg(final Object x) {
             Blackhole.consumeCPU(this.tokens);
+            // Subtle null check
+            x.getClass();
         }
 
         @Override
         @CompilerControl(CompilerControl.Mode.DONT_INLINE)
         public void oneReferenceArg(final CustomType x) {
             Blackhole.consumeCPU(this.tokens);
+            // Subtle null check
+            x.getClass();
         }
 
         @Override
@@ -169,6 +173,11 @@ public class MpscProxyChannelBenchmark {
                 final boolean b,
                 final CustomType c3) {
             Blackhole.consumeCPU(this.tokens);
+            // Subtle null check
+            o.getClass();
+            c0.getClass();
+            c1.getClass();
+            c2.getClass();
         }
 
         @Override
