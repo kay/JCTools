@@ -67,13 +67,13 @@ public class MpscFixedSizeRingBuffer extends FixedMessageSizeRingBuffer {
             producerIndex = lvProducerIndex(); // LoadLoad
             offset = offsetForIndex(producerIndex);
 
-            // This is a bug! we need to replace with a solution a-la Vyukuv MPMC or similar slot 'phase' indicator
+            final long cIndex = lvConsumerIndex(); // LoadLoad
+            long producerLimit = cIndex + capacity();
+            if (producerIndex >= producerLimit) {
+                return EOF;
+            }
+            
             if (!this.isReadReleased(offset)) {
-                // It is possible that due to another producer passing us we are seeing that producer completed message,
-                // if that is the case then we must retry.
-                if (producerIndex != lvProducerIndex()) {
-                    continue;// go around again
-                }
                 return EOF;
             }
         } while (!casProducerIndex(producerIndex, producerIndex + 1));
