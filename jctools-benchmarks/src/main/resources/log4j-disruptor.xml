@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="MyApp" packages="">
+    <Appenders>
+        <RandomAccessFile name="RandomAccessFile"
+            fileName="disruptor.log" immediateFlush="false" append="false">
+            <PatternLayout>
+                <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
+            </PatternLayout>
+        </RandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="RandomAccessFile" />
+        </Root>
+    </Loggers>
+</Configuration>
