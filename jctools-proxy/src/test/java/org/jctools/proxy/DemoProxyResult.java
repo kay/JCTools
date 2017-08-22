@@ -62,7 +62,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
                     break;
                 }
                 case 4: {
-                    long referenceArrayIndex = this.consumerReferenceArrayIndex();
+                    long referenceArrayIndex = this.consumerReferenceArrayIndex(rOffset);
                     Object x = this.readReference(referenceArrayIndex);
                     Object y = this.readReference(referenceArrayIndex + 1);
                     this.readRelease(rOffset);
@@ -70,7 +70,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
                     break;
                 }
                 case 5: {
-                    long referenceArrayIndex = this.consumerReferenceArrayIndex();
+                    long referenceArrayIndex = this.consumerReferenceArrayIndex(rOffset);
                     Object x = this.readReference(referenceArrayIndex);
                     int y = UnsafeAccess.UNSAFE.getInt(rOffset + 4);
                     Object z = this.readReference(referenceArrayIndex + 1);
@@ -79,7 +79,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
                     break;
                 }
                 case 6: {
-                    long referenceArrayIndex = this.consumerReferenceArrayIndex();
+                    long referenceArrayIndex = this.consumerReferenceArrayIndex(rOffset);
                     int x = UnsafeAccess.UNSAFE.getInt(rOffset + 4);
                     Object y = this.readReference(referenceArrayIndex);
                     Object z = this.readReference(referenceArrayIndex + 1);
@@ -120,7 +120,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
     @Override
     public void call4(Object x, CustomType y) {
         long wOffset = ProxyChannelFactory.writeAcquireWithWaitStrategy(this, waitStrategy);
-        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex();
+        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex(wOffset);
         this.writeReference(arrayReferenceBaseIndex, x);
         this.writeReference(arrayReferenceBaseIndex + 1, y);
         this.writeRelease(wOffset, 4);
@@ -129,7 +129,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
     @Override
     public void call5(CustomType x, int y, CustomType z) {
         long wOffset = ProxyChannelFactory.writeAcquireWithWaitStrategy(this, waitStrategy);
-        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex();
+        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex(wOffset);
         this.writeReference(arrayReferenceBaseIndex, x);
         UnsafeAccess.UNSAFE.putInt(wOffset + 4, y);
         this.writeReference(arrayReferenceBaseIndex + 1, z);
@@ -139,7 +139,7 @@ public class DemoProxyResult extends SpscFixedSizeRingBuffer implements ProxyCha
     @Override
     public void call6(int x, CustomType[] y, CustomType... z) {
         long wOffset = ProxyChannelFactory.writeAcquireWithWaitStrategy(this, waitStrategy);
-        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex();
+        long arrayReferenceBaseIndex = this.producerReferenceArrayIndex(wOffset);
         UnsafeAccess.UNSAFE.putInt(wOffset + 4, x);
         this.writeReference(arrayReferenceBaseIndex, y);
         this.writeReference(arrayReferenceBaseIndex + 1, z);
