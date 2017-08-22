@@ -2,13 +2,16 @@
 <Configuration status="warn" name="MyApp"
     packages="">
     <Appenders>
-        <File name="File1" fileName="logs/file.log" immediateFlush="false">
+        <File name="File1" fileName="logs/async-abq.log" immediateFlush="false">
             <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
         </File>
+        <Async name="Async" bufferSize="262144">
+            <AppenderRef ref="File1" />
+        </Async>
     </Appenders>
     <Loggers>
         <Root level="info">
-            <AppenderRef ref="File1" />
+            <AppenderRef ref="Async" />
         </Root>
     </Loggers>
 </Configuration>

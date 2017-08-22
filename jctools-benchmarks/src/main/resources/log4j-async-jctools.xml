@@ -2,15 +2,13 @@
 <Configuration status="warn" name="MyApp"
     packages="org.jctools.proxy.logger">
     <Appenders>
-        <File name="File1" fileName="jctools.log">
+        <File name="File1" fileName="logs/async-jctools.log" immediateFlush="false">
             <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
         </File>
-        <Console name="STDOUT" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
-        </Console>
-        <JcToolsAsync name="Async">
+        <Async name="Async" bufferSize="262144">
             <AppenderRef ref="File1" />
-        </JcToolsAsync>
+            <JCToolsBlockingQueue/>
+        </Async>
     </Appenders>
     <Loggers>
         <Root level="info">

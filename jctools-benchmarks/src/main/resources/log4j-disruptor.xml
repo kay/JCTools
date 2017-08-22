@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn" name="MyApp" packages="">
-    <Appenders>
+     <Appenders>
+        <!--
         <RandomAccessFile name="RandomAccessFile"
-            fileName="disruptor.log" immediateFlush="false" append="false">
+            fileName="logs/disruptor.log" immediateFlush="false" append="false">
             <PatternLayout>
                 <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
             </PatternLayout>
         </RandomAccessFile>
+        -->
+        <File name="File1" fileName="logs/disruptor.log" immediateFlush="false">
+            <PatternLayout pattern="%d{DEFAULT} [%thread] %logger - %msg%n" />
+        </File>
     </Appenders>
+    
     <Loggers>
-        <Root level="info">
-            <AppenderRef ref="RandomAccessFile" />
-        </Root>
+        <AsyncRoot level="info">
+            <AppenderRef ref="File1" />
+        </AsyncRoot>
     </Loggers>
 </Configuration>
